@@ -43,4 +43,6 @@ int main() {
     return 0;
 }
 
-// Falta colocar em ordem os if's, chamar a função cpf nas condicionais, consertar o if e mostrar o mapa, cancelar passegens e  
+/* Falta colocar em ordem os if's, chamar a função cpf nas condicionais,
+consertar o if e mostrar o mapa, cancelar passegens e  
+fazer o controle de assentos com tamanho do vertor para não dar estouro de memória */
