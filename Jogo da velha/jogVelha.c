@@ -23,7 +23,7 @@ int jog_O(){
 }
 
 // Preenchimento e verificação de lugares, Mostrar Mapa
-void mapa(coluna, linha){
+void mapa(coluna, linha){   // Tem que colocar o tipo no parâmetro
     char mapa[3][3];
     int a, b;
 
