@@ -22,10 +22,38 @@ int jog_O(){
     return coluna, linha;
 }
 
-// Preenchimento e verificação de lugares
+// Preenchimento e verificação de lugares, Mostrar Mapa
 void mapa(coluna, linha){
     char mapa[3][3];
+    int a, b;
 
+    if (mapa[coluna][linha] == 'x' && 'o')
+    {   
+        printf("Lugar oculpado, Digite outro: ");
+
+        if (mapa[coluna][linha] == 'x')
+        {
+            jog_X();
+        }
+
+        else if (mapa[coluna][linha] == 'o')
+        {
+            jog_O();
+        }
+        
+    }
+
+
+
+
+
+    for(a =1; a <= 3; a++)
+    {
+        for(b =1; b<= 3; b++);
+        {
+            printf("%d test", mapa[a][b]);
+        }
+    }
 
 }
 
