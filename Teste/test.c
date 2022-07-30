@@ -1,25 +1,29 @@
 #include <stdio.h>
 
 
-int jogador(){
-    int *linha, *coluna;
+int jogador_x(){
+    //int linha, coluna;
+    int lista[2];
     printf("Sua vez de jogar. Digite Linha e Coluna: ");
-    scanf("%d %d", &linha, &coluna);
+    scanf("%d %d", &lista[0], &lista[1]);
 
-    return *linha, *coluna;
+    return 0;
 }
+ 
+
 
 void validar_jogada(int linha, int coluna){
     printf("linha: %d\nColuna: %d", linha, coluna);
     }
-
+ 
 
 int main(){
-    int teste, teste1;
+    int a;
+    int teste = jogadada();
+    for(a=0; a<2;a++){
+        printf("%d\n",teste);
+    } 
 
-    printf("%d\n",jogador());
-    //printf("teste: %d\nTeste1: %d\n", teste,teste1);
-    validar_jogada(1,2);
 
     return 0;
 }
