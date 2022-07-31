@@ -13,6 +13,7 @@ int jogador_x(){
 
 
 void validar_jogada(int linha, int coluna){
+    if(linhalinha == "X" && )
     printf("linha: %d\nColuna: %d", linha, coluna);
     }
  
