@@ -38,5 +38,9 @@ int main(){
 
 
 
+<<<<<<< Updated upstream
 /* Criar uma variável para salvar a última posição*/
+=======
+/* Criar uma variável para salvar a última posição
+>>>>>>> Stashed changes
 
