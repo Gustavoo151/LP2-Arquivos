@@ -1,45 +1,107 @@
+/*
+16) Faça um programa para jogar o jogo da velha. Ao final imprima o resultado do jogo e pergunte
+se deseja jogar novamente.
+*/
+
 #include <stdio.h>
 
-// Função de mostrar mapa
-void mostrar_mapa(){
-    for(cont_primario=0; cont_primario<3; cont_primario++){
-        for(cont_secundario=0; cont_secundario<3; cont_secundario++){
-            printf("%c ",mapa[cont_primario][cont_secundario]);
+char mapa[3][3] = {'-','-','-','-','-','-','-','-','-'};
+
+// Função que resistra jogada e mostra mapa
+int JogadaMapa(coluna, linha, jogada)
+    {
+        if(mapa[coluna -1][linha -1] == 'X' || mapa[coluna - 1][linha -1] == 'O')
+        {
+            printf("Jogada inválida!!!\n\n");
+            return 1;
+        }
+        else
+            mapa[coluna -1][linha - 1] = jogada;
+
+        for (int linha = 0; linha < 3; linha++)
+        {
+            for(int coluna = 0; coluna < 3; coluna++)
+            {
+                printf("%c ", mapa[linha][coluna]);
             }
-        printf("\n"); 
+            printf("\n");
+        }
+    return 0;
     }
-}
 
-// Escolha do jogador
-int jogada(){
-    printf("Digite Linha e Coluna: ");
-    scanf("%d %d", &linha, &coluna)
 
-    return linha, coluna;
-}
+int verificaVencedor()
+    {
+    for (int i = 0; i < 3; i ++)
+        {
+            if (mapa[i][0] == 'X' && mapa[i][1] == 'X' && mapa[i][2] == 'X')
+                {
+                printf("O jogador X venceu o jogo.\n");
+                return 1;
+                }
+                
+            else if (mapa[i][0] == 'O' && mapa[i][1] == 'O' && mapa[i][2] == 'O')
+                {
+                printf("O jogador O venceu o jogo.\n");
+                return 1;
+                }
 
-void validar_jogada(int linha, int coluna){
-    printf
+            else if (mapa[0][i] == 'X' && mapa[1][i] == 'X' && mapa[2][i] == 'X')
+                {
+                printf("O jogador X venceu o jogo.\n");
+                return 1;
+                }
 
+            else if (mapa[0][i] == 'O' && mapa[1][i] == 'O' && mapa[2][i] == 'O')
+                {
+                printf("O jogador O venceu o jogo.\n");
+                return 1;
+                }
+        }
+    return 1;
     }
+
 
 int main(){
-    int mapa[3][3], cont_primario, cont_secundario, linha, coluna;
 
-<<<<<<< Updated upstream
-    // Preenchimento de vetor
-    for(cont_primario=0; cont_primario<3; cont_primario++){
-        for (cont_secundario=0; cont_secundario<3; cont_secundario++){
-            mapa[cont_primario][cont_secundario] = '%%';
-=======
-    for(a =1; a <= 3; a++)
-    {
-        for(b =1; b<= 3; b++);
+    int coluna, linha, fimJogo, verificaJogada = 1;
+
+    for (int jogadas = 1; jogadas <= 9; jogadas++){
+
+        if (jogadas > 5)
         {
-            printf("%d test", mapa[a][b]);
->>>>>>> Stashed changes
+            fimJogo = verificaVencedor();
+            if (fimJogo == 1)
+                    break;
         }
+
+        if(jogadas % 2 == 1){
+            do {
+                printf("Vez do jogador X: \n");
+                printf("Digite a linha e a coluna desejada: ");
+                scanf("%d %d", &coluna, &linha);
+                verificaJogada = JogadaMapa(coluna, linha, 'X');
+            } while (verificaJogada == 0);
+            }
+        
+         else{
+            printf("Vez do jogador O: \n");
+            printf("Digite a linha e a coluna desejada: ");
+            scanf("%d %d", &coluna, &linha);
+            JogadaMapa(coluna, linha, 'O');
+         }
     }
 
     return 0;
 }
+
+
+/*
+-Máximo de jogadas 9 OK
+-Verificar se o espaço está ocupado OK
+-Verifocar linha OK
+-Verificar coluna OK
+-Verificar transvesal
+-Fazer while até digitar um valor válido 
+-Finalizar jogo após um ganhar OK
+*/
