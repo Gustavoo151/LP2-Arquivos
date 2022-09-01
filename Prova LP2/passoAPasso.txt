@@ -1,0 +1,43 @@
+1 - Consolidar(juntar) todos os logs as catracas em um único arquivo
+2 - Ordenar por data/hora
+
+Seu programa deverá ser capaz de:
+
+1. Fazer uma carga de dados: ler um arquivo individual de log gerado pela catraca e inserir suas
+informações em um arquivo único consolidado, mantendo os registros ordenados por data/hora.
+Os arquivos gerados pelas catracas são arquivos CSV. Exemplos desses arquivos serão fornecidos.
+
+2. Desfazer a última carga realizada. Às vezes os operadores se enganam com os arquivos, então
+precisam desfazer a última carga. Isso deve ser possível tanto logo após a carga (com o programa
+ainda aberto) quanto após fechar o programa e reabri-lo.
+
+3. Buscar por inconsistências nos logs. Uma inconsistência ocorre quando há um registro de
+Entrada (E) para um cartão de acesso sem um registro de Saída (S) correspondente num instante
+futuro de tempo. Exemplo: o cartão 8876 foi utilizado para entrada no momento 1660913357 e
+novamente para entrada no momento 1660913456, sem ter havido uma saída antes. Esta
+funcionalidade deve gerar um arquivo inconsistencias.CSV listando todas as inconsistências
+encontradas, no formato abaixo:
+
+    DataHora;CodigoCartaoAcesso;CodigoCatraca;TipoInconsistencia
+    1573600487;55268;9;A
+    1573595966;88802;12;B
+
+Onde o tipo de inconsistência A é uma entrada sem registro de saída correspondente, e o tipo B
+uma saída sem entrada prévia nos logs. Essa análise deve se feita na base consolidada, e não nas
+cargas individuais. Não é necessário remover as inconsistências do log consolidado.
+
+4. Relatório de acesso por cartão. Gerar um relatório de acesso (em um arquivo
+<numerocartao>.CSV) para um determinado cartão de acesso, informando todos os eventos de
+entrada e saída deste cartão (mesmo que sejam inconsistências), no formato abaixo:
+
+    DataHora;CodigoCartaoAcesso;CodigoCatraca;TipoEvento
+    1573596966;88802;12;E
+    1573597121;88802;10;S
+
+Requisitos Adicionais:
+• Seu programa deve ser capaz de lidar com arquivos contendo qualquer quantidade de linhas (100,
+1.000, 1.000.000, 1000.0000.000, etc.).
+• O código deve estar devidamente modularizado em funções e dividido em mais de um arquivo,
+evitando ao máximo duplicação de código.
+• Os formatos de arquivo a serem gerados devem seguir estritamente os exemplos apresentados
+neste documento.
