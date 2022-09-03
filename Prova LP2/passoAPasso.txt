@@ -1,3 +1,6 @@
+AULA 141 - Do curso C pode ajudar
+
+
 1 - Consolidar(juntar) todos os logs as catracas em um único arquivo
 2 - Ordenar por data/hora
 

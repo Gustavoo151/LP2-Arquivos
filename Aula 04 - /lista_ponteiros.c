@@ -1,37 +1,30 @@
-#include <stdio.h>
+/* malloc(numero_bytes)  
+- Esta função aloca a quantidade de bytes solicitada e
+devolve um ponteiro, em caso de sucesso
+- Caso o SO não pode fornecer mais memória, um ponteiro nulo é retornado. Logo, sempre teste o retorno antes de usar
+o ponteiro!
+*/
+
+/*
+A função sizeof(tipo) calcula a quantidade de memória necessária para um tipo. Use esta função para tornar seu programa independente de arquitetura
+– malloc(sizeof(int)) //aloca memória para 1 inteiro
+– malloc(sizeof(float)) //aloca memória para 1 float
+*/
+ #include <stdio.h>
+ #include <stdlib.h> // Biblioteca necessária para usar as funçẽos malloc(), free() e calloc()
 
 int main(){
-    char vetor[100];
-    int valor = 0, a,b;;
-    
-    
-    for(a=0; a<=100; a++){
-        vetor[a] = "A";
-    }
-    
-    
-    void add_fim(int add_fim) {// Adicionar no fim do vetor
-        for(b=0; b<=100; b++){
-        
-            if (vetor[b] == "A"){
-                vetor[b] = add_fim;
-                break;
-        }
-    }
-}
 
-    printf("1 - Para adicionar no fim: \n2 - Para adicionar no inicio: \n3 - Para remover do início: \n4 - Para remover do fim: ");
-    scanf("%d", &valor);
-    
-    
-    switch(valor){
-        case 1:
-            add_fim(valor);
+    int *p1;
 
-        case 2:
-            for(b=0; b<=100; b++){
-            printf("%c\n", vetor[b]);
-        }
-    }
+    p1 = malloc(sizeof(int));  // Verificando tamanho pedido e alocando ele se possível
+
+    if (p1){ // Sempre teste se o ponteiro não é nulo
+        *p1 = 12; // Atribuindo 12 ao espaço de memória alocado
+    printf("%d\n", *p1);
+    }    
+    
+    free(p1); // Usada para liberar o espaço na memória usado
+
     return 0;
 }
