@@ -14,7 +14,6 @@ int main(){
         *p1 = 12; // Atribui 12 ao espaço de memória alocado
 
         // Lê do teclado um float. Repare que por ser inteiro,
-        scanf()
 
 
     }
